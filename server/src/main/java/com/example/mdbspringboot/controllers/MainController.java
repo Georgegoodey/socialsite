@@ -1,4 +1,4 @@
-package com.example.mdbspringboot;
+package com.example.mdbspringboot.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
