@@ -11,12 +11,12 @@ import reactor.core.publisher.Mono;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.mdbspringboot.repository.ProfileService;
-import com.example.mdbspringboot.model.GroceryItem;
+import com.example.mdbspringboot.model.Profile;
 
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/profiles", produces = { MediaType.APPLICATION_JSON_VALUE })
+@RequestMapping(value = "/Profiles", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class MainController {
 
 	// @ExceptionHandler(EventNotFoundException.class)
@@ -29,17 +29,17 @@ public class MainController {
 
 	private final MediaType mediaType = MediaType.APPLICATION_JSON_UTF8;
     @Autowired
-	private final ProfileService profileService;
+	private final ProfileService ProfileService;
 
-	MainController(ProfileService profileService) {
-        this.profileService = profileService;
+	MainController(ProfileService ProfileService) {
+        this.ProfileService = ProfileService;
     }
 
 	@GetMapping
-	public Publisher<GroceryItem> getAll() {
+	public Publisher<Profile> getAll() {
 		// model.addAttribute("eventsPast", eventService.findAllPast());
 		// model.addAttribute("eventsUpcoming", eventService.findAllUpcoming());
-		return this.profileService.all();
+		return this.ProfileService.all();
 	}
 
 }

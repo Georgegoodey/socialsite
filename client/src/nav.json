@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Home",
+    "href": "#home"
+  },
+  {
+    "label": "About Us",
+    "href": "#about-us"
+  },
+  {
+    "label": "Events",
+    "href": "#events"
+  },
+  {
+    "label": "Podcast",
+    "href": "#podcast"
+  },
+  {
+    "label": "Workshops",
+    "href": "workshops"
+  },
+  {
+    "label": "Partners",
+    "href": "partners"
+  }
+]

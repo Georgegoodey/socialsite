@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
-import com.example.mdbspringboot.model.GroceryItem;
+import com.example.mdbspringboot.model.Profile;
 import com.mongodb.client.result.UpdateResult;
 
 @Component
@@ -21,7 +21,7 @@ public class CustomItemRepositoryImpl implements CustomItemRepository {
 		Update update = new Update();
 		update.set("quantity", newQuantity);
 		
-		UpdateResult result = mongoTemplate.updateFirst(query, update, GroceryItem.class);
+		UpdateResult result = mongoTemplate.updateFirst(query, update, Profile.class);
 		
 		if(result == null)
 			System.out.println("No documents updated");

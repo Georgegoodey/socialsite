@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import com.example.mdbspringboot.model.GroceryItem;
+import com.example.mdbspringboot.model.Profile;
 
 @Service
 public class ProfileService {
@@ -19,7 +19,7 @@ public class ProfileService {
         this.profileRepository = profileRepository;
     }
 
-	public Flux<GroceryItem> all() {	
+	public Flux<Profile> all() {	
 		return profileRepository.findAll();
 	}
 

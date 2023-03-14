@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 interface Profile {
   id: string;
   name: string;
+  email: string;
 }
 
 interface ProfileListProps {
@@ -27,7 +28,7 @@ class ProfileList extends Component<ProfileListProps, ProfileListState> {
   async componentDidMount() {
     this.setState({isLoading: true});
 
-    const response = await fetch('http://localhost:3000/profiles');
+    const response = await fetch('http://localhost:3000/Profiles');
     const data = await response.json();
     this.setState({profiles: data, isLoading: false});
   }
@@ -41,10 +42,11 @@ class ProfileList extends Component<ProfileListProps, ProfileListState> {
 
     return (
       <div>
-        <h2>Profile List</h2>
+        <h2>All Profiles</h2>
         {profiles.map((profile: Profile) =>
           <div key={profile.id}>
             {profile.name}<br/>
+            {profile.email}<br/>
           </div>
         )}
       </div>
