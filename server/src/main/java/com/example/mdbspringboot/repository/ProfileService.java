@@ -23,4 +23,8 @@ public class ProfileService {
 		return profileRepository.findAll();
 	}
 
+    public Mono<Profile> save(Profile p){
+        return profileRepository.save(p);
+    }
+
 }

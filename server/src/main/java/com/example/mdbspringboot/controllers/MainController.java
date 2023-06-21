@@ -37,9 +37,13 @@ public class MainController {
 
 	@GetMapping
 	public Publisher<Profile> getAll() {
-		// model.addAttribute("eventsPast", eventService.findAllPast());
-		// model.addAttribute("eventsUpcoming", eventService.findAllUpcoming());
 		return this.ProfileService.all();
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public Mono<Profile> addProfile(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "email", required = false) String email){
+		Profile p = new Profile("0", name, email);
+		return this.ProfileService.save(p);
 	}
 
 }

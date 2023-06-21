@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 
+type CreateUserResponse = {
+  name: string;
+  job: string;
+  id: string;
+  createdAt: string;
+};
+
 interface Profile {
   id: string;
   name: string;
@@ -28,8 +35,27 @@ class ProfileList extends Component<ProfileListProps, ProfileListState> {
   async componentDidMount() {
     this.setState({isLoading: true});
 
-    const response = await fetch('http://localhost:3000/Profiles');
+    const response = await fetch('http://localhost:3001/Profiles', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+      },
+    });
     const data = await response.json();
+    // const send = await fetch('http://localhost:3000/Profiles', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     name: 'John Smith',
+    //     email: 'a@b.com',
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Accept: 'application/json',
+    //   },
+    // });
+    // const result = (await send.json()) as CreateUserResponse;
+
+    // console.log('result is: ', JSON.stringify(send, null, 4));
     this.setState({profiles: data, isLoading: false});
   }
 
